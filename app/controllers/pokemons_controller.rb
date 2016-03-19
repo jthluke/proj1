@@ -22,12 +22,12 @@ class PokemonsController < ApplicationController
 	end
 
 	def create
-		@pokemon = Pokemon.create[pokemon_params]
-		@pokemon.trainer = current_trainer
+		@pokemon = Pokemon.create pokemon_params
+		@pokemon.trainer_id = current_trainer.id
 		@pokemon.health = 100
 		@pokemon.level = 1
 		@pokemon.save
-		#redirect_to trainer_url(id:current_trainer.id)
+		redirect_to trainer_url(id:current_trainer.id)
 	end
 
 	private
