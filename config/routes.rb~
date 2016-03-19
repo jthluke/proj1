@@ -1,0 +1,9 @@
+Rails.application.routes.draw do
+  root to: 'home#index'
+  devise_for :trainers
+  resources :trainers
+  patch 'pokemon/capture', to: 'pokemon#capture', as: 'capture'
+  patch 'pokemon/damage', to: 'pokemon#damage', as: 'damage'
+  get 'pokemons/new', to: 'pokemons#new', as: 'new_get'
+  post 'pokemons/create', to: 'pokemons#create'
+end
